@@ -51,3 +51,30 @@ export function ImageDisplay({ imageData, w, h, open, setOpen }) {
     </>
   );
 }
+
+export function ImageDisplay2({ imageData, w, h, open, setOpen }) {
+  if (!imageData) {
+    return <BlankImageDisplay />;
+  }
+  const image = use(imageData);
+  if (!image) {
+    return <BlankImageDisplay error="生成失败"/>;
+  }
+  const objectURL = URL.createObjectURL(image)
+  return (
+    <>
+      <Image
+        alt="HeroUI Fruit Image with Zoom"
+        width={w}
+        height={h}
+        src={objectURL}
+        onClick={() => setOpen(true)}
+      />
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={[{ src: objectURL }]}
+      />
+    </>
+  );  
+}

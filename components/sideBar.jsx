@@ -70,6 +70,10 @@ export default function SideBar({
   ];
   const models = [
     {
+      id: "pollinations/flux",
+      name: "Free Flux"
+    },
+    {
       id: "black-forest-labs/FLUX.1-schnell",
       name: "FLUX.1 schnell",
     },
